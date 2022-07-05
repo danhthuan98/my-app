@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from '../api/axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 /**
 * @author
@@ -12,6 +12,7 @@ const NewPost = () => {
     const [postTitle, setPostTitle] = useState('');
     const [postDescrip, setPostDescrip] = useState('');
     const navigate = useNavigate();
+    const { id } = useParams();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -29,7 +30,7 @@ const NewPost = () => {
 
     return (
         <div className="NewPost">
-            <h2>New Post</h2>
+            <h2>{id === undefined ? 'New Post' : 'Edit Post'}</h2>
             <form className="newPostForm" onSubmit={handleSubmit}>
                 <label htmlFor="postTitle">Title:</label>
                 <input

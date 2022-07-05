@@ -29,9 +29,12 @@ const Home = () => {
                     <Post key={post._id} post={post} />
                 ))
                 : <p className="statusMsg">No posts to display.</p>)}
-            <div style={{ marginTop: 25 }}>
-                <Pagination current={current} total={data?.total} onChange={onChange} />
-            </div>
+            {
+                !isLoading && !fetchError && data?.posts?.length ?
+                    <div style={{ marginTop: 25 }}>
+                        <Pagination current={current} total={data?.total} onChange={onChange} />
+                    </div> : null
+            }
         </div>
     )
 }
