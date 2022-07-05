@@ -10,6 +10,7 @@ function App() {
       <Route path="/" element={<Layout />}>
         <Route path="/" element={<Home />} />
         <Route path="/post" element={<NewPost />} />
+        <Route path="/post/:id" element={<NewPost/>} />
       </Route>
     </Routes>
   );
