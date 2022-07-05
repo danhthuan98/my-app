@@ -1,7 +1,3 @@
-.App {
-  text-align: center;
-}
-
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -314,4 +310,15 @@ body {
     font-size: 3rem;
   }
 
+}
+
+::-webkit-scrollbar {
+  width: 9px;
+}
+
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: grey; 
+  border-radius: 25px;
 }

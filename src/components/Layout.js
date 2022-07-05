@@ -12,7 +12,7 @@ import { Outlet } from "react-router-dom";
 const Layout = () => {
     return (
         <div className="App">
-            <Header title="React JS Blog" />
+            <Header title="My Blog" />
             <Nav />
             <Outlet />
             <Footer />
