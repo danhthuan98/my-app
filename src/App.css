@@ -75,7 +75,7 @@ body {
 
 .Header, .Footer {
   width: 100%;
-  background-color: #0000FF;
+  background-color: gray;
   padding: 1rem;
   display: flex;
   justify-content: space-between;
@@ -232,6 +232,8 @@ body {
   padding: 0.5rem;
   font-size: 1rem;
   cursor: pointer;
+  width: 15%;
+  margin-left: 15px;
 }
 
 .Missing p, .PostPage p, .NewPost p {
@@ -320,4 +322,13 @@ body {
 ::-webkit-scrollbar-thumb {
   background: grey; 
   border-radius: 25px;
+}
+
+.hover-actions {
+  display: none !important;
+}
+
+/* Diplay hover texbox*/
+.hover-actions-trigger:hover .hover-actions {
+  display: block !important;
 }
