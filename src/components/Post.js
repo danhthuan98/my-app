@@ -1,17 +1,37 @@
 import { Link } from 'react-router-dom';
+import { Button, Popconfirm } from 'antd';
+import axios from '../api/axios';
 
 const Post = ({ post }) => {
 
     const date = new Date(post?.createdAt);
+
+    const handleDeletePost = async () => {
+        try {
+            await axios.delete(`/deletepost/${post._id}`);
+        } catch (error) {
+            console.log(`Error: ${error.message}`);
+        }
+    }
+
     return (
         <article className="post">
             <Link to={`/post/${post._id}`}>
                 <h2>{post.title}</h2>
-                <p className="postDate">{`Created At: ${date.toString().substring(4, 15)} ${date.toLocaleTimeString()}`}</p>
             </Link>
-            <p className="postBody">{
-                post.descrip
-            }</p>
+            <p className="postDate">{`Created At: ${date.toString().substring(4, 15)} ${date.toLocaleTimeString()}`}</p>
+            <div className='hover-actions-trigger' style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <p className="postBody">{post.descrip}</p>
+                <Popconfirm
+                    title="Are you sure to delete this post?"
+                    placement='topLeft'
+                    okText="Yes"
+                    cancelText="No"
+                    onConfirm={handleDeletePost}
+                >
+                    <Button type="primary" danger style={{ height: '25%' }} className='hover-actions'>Delete</Button>
+                </Popconfirm>
+            </div>
         </article>
     )
 }
